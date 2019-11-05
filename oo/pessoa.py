@@ -7,7 +7,7 @@ class Pessoa:
         self.filhos = list(filhos)
 
     def cumprimentar(self):
-        return f'Olá {id(self)}'
+        return f'Olá , meu nome é {self.nome}'
 
     @staticmethod
     def metodo_estatico():
@@ -19,7 +19,9 @@ class Pessoa:
 
 
 class Homem(Pessoa):
-    pass
+    def cumprimentar(self):
+        cumprimentar_da_classe = super().cumprimentar()
+        return f'{cumprimentar_da_classe}. Aperto de mão'
 
 
 class Mutante(Pessoa):
@@ -41,7 +43,6 @@ if __name__ == '__main__':
     del luciano.olhos
     print(luciano.__dict__)
     print(renzo.__dict__)
-
     print(Pessoa.olhos)
     print(luciano.olhos)
     print(renzo.olhos)
@@ -54,4 +55,5 @@ if __name__ == '__main__':
     print(isinstance(renzo, Pessoa))
     print(isinstance(renzo, Homem))
     print(renzo.olhos)
-
+    print(luciano.cumprimentar())
+    print(renzo.cumprimentar())
